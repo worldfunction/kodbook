@@ -24,7 +24,7 @@ public class PostController {
             @RequestParam("photo") MultipartFile photo	) {
 		Post post = new Post();
 		post.setCaption(caption);
-		try {						//			https://github.com/deep473/springboot-myProfile/blob/main/allFiles
+		try {						
 			post.setPhoto(photo.getBytes());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -33,11 +33,27 @@ public class PostController {
 		service.createPost(post);
 		return "home";
 	}
-	@GetMapping("/showPosts")
-	public String showPosts(Model model) {
+	
+	@GetMapping("/likePost")
+	public String likePost(@RequestParam Long id, Model model) {
+		Post post= service.getPost(id);
+		post.setLikes(post.getLikes() + 1);
+		service.updatePost(post);
 		
 		List<Post> allPosts = service.fetchAllPosts();
 		model.addAttribute("allPosts", allPosts);
-		return "showPosts";
+		return "home";
+	}
+	
+	@GetMapping("/addComment")
+	public String addComment(@RequestParam Long id, 
+			@RequestParam String comment, Model model) {
+		Post post= service.getPost(id);
+		post.getComments().add(comment);
+		service.updatePost(post);
+		
+		List<Post> allPosts = service.fetchAllPosts();
+		model.addAttribute("allPosts", allPosts);
+		return "home";
 	}
 }
