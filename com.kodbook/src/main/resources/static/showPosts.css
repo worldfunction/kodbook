@@ -1,0 +1,38 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E1D7B7;
+            color: #1E2A5E;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .profile-details {
+            background-color: #7C93C3;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 {
+            text-align: center;
+            color: #1E2A5E;
+        }
+        .post {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid #55679C;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin: 10px 0;
+        }
+        strong {
+            color: #1E2A5E;
+        }

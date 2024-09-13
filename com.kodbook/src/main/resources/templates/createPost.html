@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Create Post</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+   <link rel="stylesheet" type="text/css" th:href="@{/createPost.css}">
+   
 </head>
 <body>
-<h2>Profile Creation</h2>
-<form id="profileForm" action="/createPost" method="post"
-enctype="multipart/form-data">
-<textarea name="caption" placeholder="caption" required >
-</textarea>
-<br>
-<br>
-<input type="file" name="photo" accept="image/*" />
-<br>
-<button type="submit">POST</button>
-</form>
+    <form id="profileForm" action="/createPost" method="post" enctype="multipart/form-data">
+        <h2>Profile Creation</h2>
+        <textarea name="caption" placeholder="Enter your caption here..." required></textarea>
+        <br>
+        <input type="file" name="photo" accept="image/*" />
+        <br>
+        <button type="submit">POST</button>
+    </form>
 </body>
 </html>
