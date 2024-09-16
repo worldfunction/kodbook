@@ -32,4 +32,14 @@ public class NavigationController {
 			model.addAttribute("allPosts", allPosts);
 			return "home";
 	}
+	@GetMapping("/openMyProfile")
+	public String openMyProfile() {
+	return "myProfile";
+
+	}
+
+	@GetMapping("/openEditProfile")
+	public String openEditProfile() {
+	return "editProfile";
+	}
 }

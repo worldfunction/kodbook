@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+    <div>
+        <img src="profile-pic.jpg" alt="Profile Picture" width="150" height="150">
+    </div>
+    <div>
+        <h2 th:text="${userProfile.username}">Username</h2>
+        <p>Date of Birth: <span th:text="${userProfile.dob}">DOB</span></p>
+        <p>Gender: <span th:text="${userProfile.gender}">Gender</span></p>
+        <p>Current City: <span th:text="${userProfile.currentCity}">City</span></p>
+    </div>
+    <div>
+        <h3>About User</h3>
+        <p th:text="${userProfile.bio}">Bio</p>
+    </div>
+    <div>
+        <h3>Education Details</h3>
+        <p th:text="${userProfile.educationDetails}">Education</p>
+    </div>
+    <div>
+        <p>LinkedIn: <a th:href="${userProfile.linkedIn}">LinkedIn</a></p>
+        <p>GitHub: <a th:href="${userProfile.github}">GitHub</a></p>
+    </div>
+    <div>
+        <a href="/openEditProfile">Edit Profile</a>
+    </div>
+</body>
+</html>
