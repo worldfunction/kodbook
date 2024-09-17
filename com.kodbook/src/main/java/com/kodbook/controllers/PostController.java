@@ -21,7 +21,8 @@ public class PostController {
 	
 	@PostMapping("/createPost")
 	public String createPost(@RequestParam ("caption") String caption,
-            @RequestParam("photo") MultipartFile photo	) {
+            @RequestParam("photo") MultipartFile photo,
+            Model model) {
 		Post post = new Post();
 		post.setCaption(caption);
 		try {						
@@ -31,6 +32,8 @@ public class PostController {
 			e.printStackTrace();
 		}
 		service.createPost(post);
+		List<Post> allPosts = PostService.fetchAllPosts();
+		model.addAttribute("allPosts", allPosts);
 		return "home";
 	}
 	
@@ -40,7 +43,7 @@ public class PostController {
 		post.setLikes(post.getLikes() + 1);
 		service.updatePost(post);
 		
-		List<Post> allPosts = service.fetchAllPosts();
+		List<Post> allPosts = PostService.fetchAllPosts();
 		model.addAttribute("allPosts", allPosts);
 		return "home";
 	}
@@ -58,7 +61,7 @@ public class PostController {
 		post.setComments(comments);
 		service.updatePost(post);
 		
-		List<Post> allPosts = service.fetchAllPosts();
+		List<Post> allPosts = PostService.fetchAllPosts();
 		model.addAttribute("allPosts", allPosts);
 		return "home";
 	}

@@ -25,7 +25,6 @@ public class PostServiceImplementation
 		return repo.findAll();
 	}
 
-	@Override
 	public List<Post> fetchAllPosts() {
 		return repo.findAll();
 	}

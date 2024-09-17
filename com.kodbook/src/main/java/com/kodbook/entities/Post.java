@@ -28,20 +28,36 @@ public class Post {
         return Base64.getEncoder().encodeToString(photo);
     }
 
+
 	public Post() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Post(Long id, String caption, int likes, List<String> comments, User user, byte[] photo) {
-		super();
-		this.id = id;
-		this.caption = caption;
-		this.likes = likes;
-		this.comments = comments;
-		this.user = user;
-		this.photo = photo;
+	
+
+	public int getLikes() {
+		return likes;
 	}
+
+
+
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
+
+
+
+	public List<String> getComments() {
+		return comments;
+	}
+
+
+
+	public void setComments(List<String> comments) {
+		this.comments = comments;
+	}
+
 
 	public Long getId() {
 		return id;
@@ -59,30 +75,6 @@ public class Post {
 		this.caption = caption;
 	}
 
-	public int getLikes() {
-		return likes;
-	}
-
-	public void setLikes(int likes) {
-		this.likes = likes;
-	}
-
-	public List<String> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<String> comments) {
-		this.comments = comments;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	public byte[] getPhoto() {
 		return photo;
 	}
@@ -91,9 +83,34 @@ public class Post {
 		this.photo = photo;
 	}
 
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	public Post(Long id, String caption, int likes, List<String> comments, User user, byte[] photo) {
+		super();
+		this.id = id;
+		this.caption = caption;
+		this.likes = likes;
+		this.comments = comments;
+		this.user = user;
+		this.photo = photo;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Post [id=" + id + ", caption=" + caption + ", likes=" + likes + ", comments=" + comments + ", user="
 				+ user + ", photo=" + Arrays.toString(photo) + "]";
 	}
+
+	
+	
 }

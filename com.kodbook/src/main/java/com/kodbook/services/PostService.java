@@ -10,7 +10,10 @@ public interface PostService {
 	
 	List<Post> getAllPosts();
 
-	List<Post> fetchAllPosts();
+	static List<Post> fetchAllPosts() {
+		
+		return null;
+	}
 
 	Post getPost(Long id);
 

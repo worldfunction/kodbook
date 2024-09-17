@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>KodBook Home</title>
@@ -7,11 +7,12 @@
 </head>
 <body>
     <nav>
- <a href="/goHome">News feed</a>
-<a href="/openCreatePost">Create post</a>
-<a href="/openMyProfile">My profile</a>
+    	<span th:text="${session.username}"></span>
+        <a href="/goHome">News feed</a>
+        <a href="/openCreatePost">Create post</a>
+        <a href="/openMyProfile">My profile</a>
     </nav>
-
+    
     <div class="profile-details">
         <span th:each="post : ${allPosts}">
             <div class="post">
@@ -23,20 +24,20 @@
                     <span th:text="${post.caption}"></span></p>
                 <p><strong>Likes:</strong> 
                     <span th:text="${post.likes}"></span></p>
-
+                
                 <!-- Like form -->
                 <form action="/likePost" method="post">
                     <input type="hidden" name="id" th:value="${post.id}">
                     <input type="submit" value="LIKE POST">
                 </form>
-
+                
                 <!-- Comment form -->
                 <form action="/addComment" method="post" class="comment-form">
                     <input type="hidden" name="id" th:value="${post.id}">
                     <textarea name="comment" placeholder="Add a comment..." required></textarea>
                     <input type="submit" value="Comment">
                 </form>
-
+                
                 <!-- Displaying Comments -->
                 <div class="comments-section">
                     <h4>Comments:</h4>
