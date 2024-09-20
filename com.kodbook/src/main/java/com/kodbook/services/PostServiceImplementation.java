@@ -9,8 +9,7 @@ import com.kodbook.entities.Post;
 import com.kodbook.repositories.PostRepository;
 
 @Service
-public class PostServiceImplementation
-		implements PostService{
+public class PostServiceImplementation implements PostService{
 
 	@Autowired
 	PostRepository repo;
@@ -25,6 +24,7 @@ public class PostServiceImplementation
 		return repo.findAll();
 	}
 
+	@Override
 	public List<Post> fetchAllPosts() {
 		return repo.findAll();
 	}

@@ -44,5 +44,11 @@ public class UserServiceImplementation
 	public void updateUser(User user) {
 		repo.save(user);
 	}
-	
-}
+
+	@Override
+	public User findByUsername(String username) {
+		 return repo.findByUsername(username);
+	}
+
+
+	}
